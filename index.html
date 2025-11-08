@@ -111,7 +111,7 @@
 
         uniform float u_time;
         void main() {
-            float noise = 5. * pnoise(position + u_time, vec3(10.));
+            float noise = 4. * pnoise(position + u_time, vec3(10.));
 
             float displacement = (u_frequency / 30.) * (noise / 10.);
 
@@ -121,8 +121,11 @@
     </script>
 
     <script id="fragmentshader" type="fragment">
+        uniform float u_red;
+        uniform float u_blue;
+        uniform float u_green;
         void main() {
-            gl_FragColor = vec4(1.0);
+            gl_FragColor = vec4(vec3(u_red, u_green, u_blue), 1. );
         }
     </script>
 </body>
